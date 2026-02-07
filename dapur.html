@@ -78,7 +78,7 @@
         </div>
     </main>
 
-    <audio id="notif-sound" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3"
+    <audio id="notif-sound" src="notif.mp3.mpeg"
         preload="auto"></audio>
 
     <script>
@@ -96,6 +96,15 @@
 
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
+        // Pantau pesanan baru masuk
+            database.ref('pesanan_masuk').on('child_added', (snapshot) => {
+                const suara = document.getElementById('notif-sound');
+                if (suara) {
+                    suara.play().catch(error => {
+                        console.log("Browser butuh interaksi: Klik layar sekali agar suara aktif");
+                    });
+                }
+            });
 
         // Jam Digital
         setInterval(() => {
@@ -217,5 +226,6 @@
         }
     </script>
 </body>
+
 
 </html>
