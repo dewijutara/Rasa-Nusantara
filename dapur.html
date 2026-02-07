@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor Dapur - Rasa Nusantara</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .order-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .order-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+
+<body class="bg-[#0f172a] text-slate-200 min-h-screen">
+
+    <nav class="bg-[#1e293b]/80 backdrop-blur-md border-b border-slate-700/50 sticky top-0 z-50 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="bg-orange-500 p-2.5 rounded-xl shadow-lg shadow-orange-500/20">
+                    <i class="fas fa-fire-alt text-white text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-extrabold tracking-tight text-white uppercase italic">Monitor Dapur</h1>
+                    <div class="flex items-center gap-2">
+                        <span class="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+                        <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Sistem Online -
+                            Realtime</p>
+                    </div>
+                </div>
+            </div>
+            <div id="clock" class="text-right font-mono text-lg font-bold text-orange-500 hidden sm:block">
+                00:00:00
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto p-6">
+        <div id="container-pesanan" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        </div>
+
+        <div id="empty-state" class="hidden flex flex-col items-center justify-center py-40 text-slate-500">
+            <i class="fas fa-clipboard-check text-6xl mb-4 opacity-20"></i>
+            <p class="text-lg font-medium italic">Belum ada pesanan masuk...</p>
+        </div>
+    </main>
+
+    <audio id="notif-sound" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3"
+        preload="auto"></audio>
+
+    <script>
+
+        // --- KONFIGURASI FIREBASE ---
+        const firebaseConfig = {
+            apiKey: "AIzaSyBIQRukk23C7VPrYljmJGTMYY4tPFV_B34",
+            authDomain: "rasa-nusantara-dapur.firebaseapp.com",
+            databaseURL: "https://rasa-nusantara-dapur-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "rasa-nusantara-dapur",
+            storageBucket: "rasa-nusantara-dapur.firebasestorage.app",
+            messagingSenderId: "713324395000",
+            appId: "1:713324395000:web:8800abbd837f546f66fe0d"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // Jam Digital
+        setInterval(() => {
+            document.getElementById('clock').innerText = new Date().toLocaleTimeString('id-ID');
+        }, 1000);
+
+        // Variabel untuk melacak ID pesanan yang sudah ada
+        let listIdLama = [];
+
+        // Fungsi Panggilan Suara (Text-to-Speech)
+        function panggilPesanan(nama) {
+            // 1. Putar suara bell notifikasi
+            const bell = document.getElementById('notif-sound');
+            if (bell) {
+                bell.currentTime = 0;
+                bell.play().catch(e => console.log("Klik layar dulu untuk aktifkan suara"));
+            }
+
+            // 2. Ucapkan nama pembeli (Bahasa Indonesia)
+            setTimeout(() => {
+                const ucapan = new SpeechSynthesisUtterance();
+                ucapan.text = `Pesanan baru atas nama ${nama}`;
+                ucapan.lang = 'id-ID';
+                ucapan.rate = 1.0;
+                ucapan.pitch = 1.1;
+                window.speechSynthesis.speak(ucapan);
+            }, 800);
+        }
+
+        // Mendengarkan data dari Firebase
+        database.ref('pesanan_masuk').on('value', (snapshot) => {
+            const container = document.getElementById('container-pesanan');
+            const emptyState = document.getElementById('empty-state');
+            const data = snapshot.val();
+
+            if (!data) {
+                container.innerHTML = "";
+                emptyState.classList.remove('hidden');
+                listIdLama = []; // Reset jika data kosong
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            const idSekarang = Object.keys(data);
+
+            // LOGIKA SUARA: Cari apakah ada ID baru yang masuk
+            const idBaru = idSekarang.find(id => !listIdLama.includes(id));
+
+            // Jika ada ID baru dan ini bukan saat pertama kali halaman dibuka (refresh)
+            if (idBaru && listIdLama.length > 0) {
+                const namaPembeli = data[idBaru].nama;
+                panggilPesanan(namaPembeli);
+            }
+
+            // Update daftar ID lama
+            listIdLama = idSekarang;
+
+            // Render ulang tampilan
+            container.innerHTML = "";
+            idSekarang.reverse().forEach(id => {
+                tampilkanPesanan(id, data[id]);
+            });
+        });
+
+        function tampilkanPesanan(id, data) {
+            const container = document.getElementById('container-pesanan');
+            let itemsHtml = "";
+
+            // Pastikan data items ada sebelum di-loop
+            if (data.items && Array.isArray(data.items)) {
+                data.items.forEach(item => {
+                    itemsHtml += `
+                <div class="flex justify-between items-center bg-slate-900/40 p-2.5 rounded-lg border border-slate-700/30">
+                    <span class="font-semibold text-sm text-slate-200">${item.nama}</span>
+                    <span class="bg-slate-700 text-white text-[10px] px-2 py-1 rounded font-black italic underline decoration-orange-500">x${item.qty || 1}</span>
+                </div>
+            `;
+                });
+            }
+
+            const isDelivery = data.tipe !== "Makan di Tempat";
+            const themeColor = isDelivery ? "border-blue-500" : "border-orange-500";
+            const badgeClass = isDelivery ? "bg-blue-500/10 text-blue-400 border-blue-500/20" : "bg-orange-500/10 text-orange-400 border-orange-500/20";
+
+            const card = document.createElement('div');
+            card.id = id;
+            card.className = `order-card bg-[#1e293b] border-t-4 ${themeColor} p-5 rounded-2xl shadow-2xl flex flex-col`;
+            card.innerHTML = `
+        <div class="flex justify-between items-start mb-4">
+            <div>
+                <h3 class="font-extrabold text-lg text-white uppercase tracking-tight leading-tight">${data.nama}</h3>
+                <p class="text-[10px] text-slate-500 font-bold mt-1 uppercase tracking-widest"><i class="far fa-clock mr-1"></i> ${data.waktu}</p>
+            </div>
+            <span class="text-[9px] px-2 py-1 rounded-md border font-black uppercase tracking-tighter ${badgeClass}">${data.tipe}</span>
+        </div>
+        
+        <div class="space-y-2 mb-4 flex-1">
+            ${itemsHtml}
+        </div>
+
+        <div class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-5 bg-[#0f172a] p-3 rounded-xl border border-slate-700/50">
+            <i class="${isDelivery ? 'fas fa-map-marker-alt text-blue-500' : 'fas fa-chair text-orange-500'}"></i>
+            <span class="truncate">${isDelivery ? data.alamat : 'Meja: ' + data.meja}</span>
+        </div>
+
+        <button onclick="selesaiPesanan('${id}')" 
+            class="w-full bg-green-600 hover:bg-green-500 text-white font-black py-3 rounded-xl transition-all shadow-lg shadow-green-900/20 flex items-center justify-center gap-2 group uppercase text-xs tracking-widest">
+            <span>Sajikan Pesanan</span>
+            <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+        </button>
+    `;
+            container.appendChild(card);
+        }
+
+        function selesaiPesanan(id) {
+            if (confirm("Pesanan sudah siap disajikan?")) {
+                database.ref('pesanan_masuk/' + id).remove();
+            }
+        }
+    </script>
+</body>
+
+</html>

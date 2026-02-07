@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rasa Nusantara - UMKM Kuliner Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-white text-gray-800 overflow-x-hidden">
+    <div class="promo-banner text-center overflow-hidden bg-orange-500 text-white py-2 shadow-md relative z-[110]">
+        <div class="whitespace-nowrap inline-block animate-marquee font-bold text-xs tracking-widest">
+            🎉 DISKON 10% UNTUK PESANAN PERTAMA VIA WHATSAPP! • GRATIS ONGKIR RADIUS 5KM • OPEN RESELLER SELURUH
+            INDONESIA!
+        </div>
+    </div>
+
+    <nav class="bg-white sticky top-0 z-[100] shadow-sm border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        </div>
+    </nav>
+
+
+    <nav class="bg-white sticky top-0 z-[100] shadow-sm border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        </div>
+
+        <nav class="bg-white sticky top-0 z-[100] shadow-sm border-b border-gray-100">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="text-2xl font-bold italic tracking-wider text-[#0d3b3f]">RASA<span
+                        class="text-orange-500">NUSANTARA.</span></div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#tentang" class="nav-link">Tentang</a>
+                    <a href="#menu" class="nav-link">Menu</a>
+                    <a href="#testimoni" class="nav-link">Testimoni</a>
+                    <a href="#kontak" class="nav-link">Kontak</a>
+                </div>
+
+                <div class="flex items-center space-x-5 text-black">
+                    <div class="relative cursor-pointer p-2" id="cart-icon-trigger">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="cart-count"
+                            class="absolute top-0 right-0 bg-orange-500 text-white text-[10px] font-extrabold px-1.5 py-0.5 rounded-full">0</span>
+                    </div>
+                    <button id="hamburger-btn" class="md:hidden text-2xl focus:outline-none p-2">
+                        <i class="fas fa-bars" id="hamburger-icon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu"
+                class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-xl p-6 flex flex-col space-y-4">
+                <a href="#home" class="mobile-link">Home</a>
+                <a href="#tentang" class="mobile-link">Tentang</a>
+                <a href="#menu" class="mobile-link">Menu</a>
+                <a href="#testimoni" class="mobile-link">Testimoni</a>
+                <a href="#kontak" class="mobile-link">Kontak</a>
+            </div>
+        </nav>
+
+        <header id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#0d3b3f]">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full -mr-20 -mt-20 blur-3xl"></div>
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+                <div class="space-y-8 animate-fade-in">
+                    <span
+                        class="text-orange-400 font-semibold tracking-widest uppercase text-sm px-4 py-2 bg-orange-400/10 rounded-full">Authentic
+                        Taste</span>
+                    <h1 class="text-5xl lg:text-7xl font-bold leading-tight text-white">Cita Rasa Otentik <br><span
+                            class="text-orange-500">Warisan Nusantara.</span></h1>
+                    <p class="text-gray-300 text-lg md:text-xl max-w-lg">Menghadirkan resep tradisional dengan bahan
+                        segar
+                        pilihan.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#menu"
+                            class="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-full font-bold transition transform hover:scale-105 shadow-xl">Cek
+                            Menu Sekarang</a>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <div
+                        class="absolute inset-0 bg-orange-500 rounded-[2rem] rotate-3 group-hover:rotate-0 transition duration-500 shadow-2xl">
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?w=800"
+                        class="relative z-10 rounded-[2rem] object-cover w-full h-[400px] md:h-[500px]">
+                </div>
+            </div>
+        </header>
+        <section id="tentang" class="py-24 bg-white overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+
+                    <div class="relative group">
+                        <div
+                            class="absolute -bottom-6 -left-6 w-64 h-64 bg-orange-100 rounded-full -z-10 opacity-70 animate-pulse">
+                        </div>
+
+                        <div
+                            class="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white transition-transform duration-500 group-hover:-rotate-1">
+                            <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800"
+                                alt="Dapur Rasa Nusantara"
+                                class="w-full h-[550px] object-cover transition duration-700 group-hover:scale-110">
+                        </div>
+
+                        <div
+                            class="absolute -bottom-6 -right-6 bg-white p-6 rounded-3xl shadow-2xl border border-gray-100 hidden lg:block animate-bounce">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="bg-orange-500 w-12 h-12 rounded-full flex items-center justify-center text-white">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold uppercase tracking-tighter">Kepuasan</p>
+                                    <p class="text-lg font-bold text-[#0d3b3f]">Rating 4.9+</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div>
+                            <span class="text-orange-500 font-bold uppercase tracking-[0.2em] text-sm">Cerita
+                                Kami</span>
+                            <h2 class="text-4xl md:text-5xl font-bold text-[#0d3b3f] leading-tight mt-2">Masakan
+                                Tradisional, <span class="italic font-serif">Kualitas Restoran.</span></h2>
+                            <p class="text-gray-600 leading-relaxed text-lg mt-4">
+                                Berawal dari kegemaran keluarga mengeksplorasi rempah, **Rasa Nusantara** kini hadir
+                                membawa keaslian rasa masakan ibu ke meja makan Anda dengan standar kebersihan yang
+                                modern.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div
+                                class="flex items-start gap-4 p-4 rounded-2xl border border-gray-50 hover:bg-orange-50/50 transition duration-300">
+                                <div
+                                    class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-[#0d3b3f]">Bahan Pilihan</h4>
+                                    <p class="text-xs text-gray-500 mt-1">100% Tanpa pengawet & bahan kimia tambahan.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex items-start gap-4 p-4 rounded-2xl border border-gray-50 hover:bg-orange-50/50 transition duration-300">
+                                <div
+                                    class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-[#0d3b3f]">Resep Asli</h4>
+                                    <p class="text-xs text-gray-500 mt-1">Menggunakan rempah rahasia turun-temurun.</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex items-start gap-4 p-4 rounded-2xl border border-gray-50 hover:bg-orange-50/50 transition duration-300">
+                                <div
+                                    class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-shipping-fast"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-[#0d3b3f]">Fast Response</h4>
+                                    <p class="text-xs text-gray-500 mt-1">Pesanan Anda segera diproses & dikirim hangat.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex items-start gap-4 p-4 rounded-2xl border border-gray-50 hover:bg-orange-50/50 transition duration-300">
+                                <div
+                                    class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-[#0d3b3f]">Halal & Higienis</h4>
+                                    <p class="text-xs text-gray-500 mt-1">Kebersihan dapur adalah prioritas utama kami.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="testimoni" class="py-24 bg-[#0d3b3f] relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+                <div class="absolute top-10 left-10 w-40 h-40 border-4 border-white rounded-full"></div>
+                <div class="absolute bottom-10 right-10 w-60 h-60 border-4 border-orange-500 rounded-full"></div>
+            </div>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-16">
+                    <span class="text-orange-400 font-bold uppercase tracking-widest text-sm">Apa Kata Mereka?</span>
+                    <h2 class="text-4xl font-bold text-white mt-2">Kepuasan Pelanggan Adalah Prioritas</h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div
+                        class="bg-white/5 backdrop-blur-lg p-8 rounded-[2rem] border border-white/10 hover:border-orange-500 transition duration-500">
+                        <div class="flex text-orange-400 mb-4 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 italic mb-6">"Rendangnya juara banget! Dagingnya empuk dan bumbunya
+                            meresap
+                            sampai ke dalam. Persis kayak masakan nenek di kampung."</p>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center font-bold text-white">
+                                S</div>
+                            <div>
+                                <h4 class="text-white font-bold">Siti Rahma</h4>
+                                <p class="text-orange-400 text-xs uppercase tracking-tighter">Ibu Rumah Tangga</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white/5 backdrop-blur-lg p-8 rounded-[2rem] border border-white/10 hover:border-orange-500 transition duration-500">
+                        <div class="flex text-orange-400 mb-4 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 italic mb-6">"Pesan untuk acara kantor kemarin, semua teman-teman puji
+                            Ayam
+                            Betutu-nya. Pengiriman tepat waktu dan kemasannya sangat rapi."</p>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center font-bold text-white">
+                                A</div>
+                            <div>
+                                <h4 class="text-white font-bold">Andi Wijaya</h4>
+                                <p class="text-orange-400 text-xs uppercase tracking-tighter">Manager IT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white/5 backdrop-blur-lg p-8 rounded-[2rem] border border-white/10 hover:border-orange-500 transition duration-500">
+                        <div class="flex text-orange-400 mb-4 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 italic mb-6">"Gak nyangka ada makanan kualitas resto harga UMKM. Es
+                            Teler
+                            Sultannya benar-benar segar dan buahnya gak pelit!"</p>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center font-bold text-white">
+                                M</div>
+                            <div>
+                                <h4 class="text-white font-bold">Maya Putri</h4>
+                                <p class="text-orange-400 text-xs uppercase tracking-tighter">Mahasiswi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu" class="py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center md:text-left mb-12">
+                    <h2 class="text-4xl font-bold text-[#0d3b3f] mb-2">Menu Spesial Kami</h2>
+                    <div class="h-1.5 w-20 bg-orange-500 rounded-full mx-auto md:mx-0"></div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                    <div class="menu-card group">
+                        <div class="overflow-hidden rounded-2xl mb-4 h-52">
+                            <img src="img/Nasi Padang.jpeg"
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                alt="Nasi Campur Bali">
+                        </div>
+                        <h3 class="font-bold text-lg mb-1 text-gray-900">Nasi Padang</h3>
+                        <p class="text-orange-600 font-extrabold text-xl mb-4">Rp 35.000</p>
+                        <div class="flex gap-2">
+                            <button onclick="addToCart('Nasi Padang', 35000)"
+                                class="bg-orange-100 text-orange-600 p-3 rounded-xl hover:bg-orange-200 transition">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                            <button onclick="buyNow('Nasi Padang', 35000)"
+                                class="flex-1 bg-orange-500 text-white font-bold py-3 rounded-xl hover:bg-orange-600 shadow-lg transition">Beli
+                                Sekarang</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-card group">
+                        <div class="overflow-hidden rounded-2xl mb-4 h-52">
+                            <img src="img/Rendang.jpeg"
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                alt="Rendang Minang">
+                        </div>
+                        <h3 class="font-bold text-lg mb-1 text-gray-900">Rendang Minang</h3>
+                        <p class="text-orange-600 font-extrabold text-xl mb-4">Rp 45.000</p>
+                        <div class="flex gap-2">
+                            <button onclick="addToCart('Rendang Minang', 45000)"
+                                class="bg-orange-100 text-orange-600 p-3 rounded-xl hover:bg-orange-200 transition">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                            <button onclick="buyNow('Rendang Minang', 45000)"
+                                class="flex-1 bg-orange-500 text-white font-bold py-3 rounded-xl hover:bg-orange-600 shadow-lg transition">Beli
+                                Sekarang</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-card group">
+                        <div class="overflow-hidden rounded-2xl mb-4 h-52">
+                            <img src="img/Ayam Betutu.jpeg"
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                alt="Ayam Betutu">
+                        </div>
+                        <h3 class="font-bold text-lg mb-1 text-gray-900">Ayam Betutu</h3>
+                        <p class="text-orange-600 font-extrabold text-xl mb-4">Rp 40.000</p>
+                        <div class="flex gap-2">
+                            <button onclick="addToCart('Ayam Betutu', 40000)"
+                                class="bg-orange-100 text-orange-600 p-3 rounded-xl hover:bg-orange-200 transition">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                            <button onclick="buyNow('Ayam Betutu', 40000)"
+                                class="flex-1 bg-orange-500 text-white font-bold py-3 rounded-xl hover:bg-orange-600 shadow-lg transition">Beli
+                                Sekarang</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-card group">
+                        <div class="overflow-hidden rounded-2xl mb-4 h-52">
+                            <img src="img/Sate.jpeg"
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                alt="Sate Maranggi">
+                        </div>
+                        <h3 class="font-bold text-lg mb-1 text-gray-900">Sate Maranggi</h3>
+                        <p class="text-orange-600 font-extrabold text-xl mb-4">Rp 38.000</p>
+                        <div class="flex gap-2">
+                            <button onclick="addToCart('Sate Maranggi', 38000)"
+                                class="bg-orange-100 text-orange-600 p-3 rounded-xl hover:bg-orange-200 transition">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                            <button onclick="buyNow('Sate Maranggi', 38000)"
+                                class="flex-1 bg-orange-500 text-white font-bold py-3 rounded-xl hover:bg-orange-600 shadow-lg transition">Beli
+                                Sekarang</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-card group">
+                        <div class="overflow-hidden rounded-2xl mb-4 h-52">
+                            <img src="img/Gado-Gado.jpeg"
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                alt="Gado-Gado">
+                        </div>
+                        <h3 class="font-bold text-lg mb-1 text-gray-900">Gado-Gado Siram</h3>
+                        <p class="text-orange-600 font-extrabold text-xl mb-4">Rp 25.000</p>
+                        <div class="flex gap-2">
+                            <button onclick="addToCart('Gado-Gado Siram', 25000)"
+                                class="bg-orange-100 text-orange-600 p-3 rounded-xl hover:bg-orange-200 transition">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                            <button onclick="buyNow('Gado-Gado Siram', 25000)"
+                                class="flex-1 bg-orange-500 text-white font-bold py-3 rounded-xl hover:bg-orange-600 shadow-lg transition">Beli
+                                Sekarang</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-card group">
+                        <div class="overflow-hidden rounded-2xl mb-4 h-52">
+                            <img src="img/sop buntut.jpeg"
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                alt="Sop Buntut">
+                        </div>
+                        <h3 class="font-bold text-lg mb-1 text-gray-900">Sop Buntut Spesial</h3>
+                        <p class="text-orange-600 font-extrabold text-xl mb-4">Rp 65.000</p>
+                        <div class="flex gap-2">
+                            <button onclick="addToCart('Sop Buntut Spesial', 65000)"
+                                class="bg-orange-100 text-orange-600 p-3 rounded-xl hover:bg-orange-200 transition">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                            <button onclick="buyNow('Sop Buntut Spesial', 65000)"
+                                class="flex-1 bg-orange-500 text-white font-bold py-3 rounded-xl hover:bg-orange-600 shadow-lg transition">Beli
+                                Sekarang</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-card group">
+                        <div class="overflow-hidden rounded-2xl mb-4 h-52">
+                            <img src="img/Bebek.jpeg"
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                alt="Bebek Goreng">
+                        </div>
+                        <h3 class="font-bold text-lg mb-1 text-gray-900">Bebek Goreng Krispi</h3>
+                        <p class="text-orange-600 font-extrabold text-xl mb-4">Rp 42.000</p>
+                        <div class="flex gap-2">
+                            <button onclick="addToCart('Bebek Goreng Krispi', 42000)"
+                                class="bg-orange-100 text-orange-600 p-3 rounded-xl hover:bg-orange-200 transition">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                            <button onclick="buyNow('Bebek Goreng Krispi', 42000)"
+                                class="flex-1 bg-orange-500 text-white font-bold py-3 rounded-xl hover:bg-orange-600 shadow-lg transition">Beli
+                                Sekarang</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-card group">
+                        <div class="overflow-hidden rounded-2xl mb-4 h-52">
+                            <img src="img/Ayam serundeng.jpeg"
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                alt="Es Teler">
+                        </div>
+                        <h3 class="font-bold text-lg mb-1 text-gray-900">Ayam Goreng Serundeng</h3>
+                        <p class="text-orange-600 font-extrabold text-xl mb-4">Rp 20.000</p>
+                        <div class="flex gap-2">
+                            <button onclick="addToCart('Ayam Goreng Serundeng', 20000)"
+                                class="bg-orange-100 text-orange-600 p-3 rounded-xl hover:bg-orange-200 transition">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                            <button onclick="buyNow('Ayam Goreng Serundeng', 20000)"
+                                class="flex-1 bg-orange-500 text-white font-bold py-3 rounded-xl hover:bg-orange-600 shadow-lg transition">Beli
+                                Sekarang</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="menu" class="py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center md:text-left mb-12">
+                    <div class="text-center md:text-left mb-12">
+                        <h2 class="text-4xl font-bold text-[#0d3b3f] mb-2">Minuman Segar</h2>
+                        <div class="h-1.5 w-20 bg-orange-500 rounded-full mx-auto md:mx-0"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                        <div class="menu-card group">
+                            <div class="overflow-hidden rounded-2xl mb-4 h-52">
+                                <img src="img/es jeruk.jpeg"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                    alt="Es Jeruk Peras">
+                            </div>
+                            <h3 class="font-bold text-lg mb-1 text-gray-900">Es Jeruk Peras</h3>
+                            <p class="text-orange-600 font-extrabold text-xl mb-4">Rp 12.000</p>
+                            <div class="flex gap-2">
+                                <button onclick="addToCart('Es Jeruk Peras', 12000)"
+                                    class="bg-orange-100 text-orange-600 p-3 rounded-xl hover:bg-orange-200 transition">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                                <button onclick="buyNow('Es Jeruk Peras', 12000)"
+                                    class="flex-1 bg-orange-500 text-white font-bold py-3 rounded-xl hover:bg-orange-600 shadow-lg transition">Beli</button>
+                            </div>
+                        </div>
+
+                        <div class="menu-card group">
+                            <div class="overflow-hidden rounded-2xl mb-4 h-52">
+                                <img src="img/es teh.jpeg"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                    alt="Es Teh Manis">
+                            </div>
+                            <h3 class="font-bold text-lg mb-1 text-gray-900">Es Teh Manis</h3>
+                            <p class="text-orange-600 font-extrabold text-xl mb-4">Rp 5.000</p>
+                            <div class="flex gap-2">
+                                <button onclick="addToCart('Es Teh Manis', 5000)"
+                                    class="bg-orange-100 text-orange-600 p-3 rounded-xl hover:bg-orange-200 transition">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                                <button onclick="buyNow('Es Teh Manis', 5000)"
+                                    class="flex-1 bg-orange-500 text-white font-bold py-3 rounded-xl hover:bg-orange-600 shadow-lg transition">Beli</button>
+                            </div>
+                        </div>
+
+                        <div class="menu-card group">
+                            <div class="overflow-hidden rounded-2xl mb-4 h-52">
+                                <img src="img/es alpukat.jpeg"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                    alt="Wedang Jahe">
+                            </div>
+                            <h3 class="font-bold text-lg mb-1 text-gray-900">Es Alpukat</h3>
+                            <p class="text-orange-600 font-extrabold text-xl mb-4">Rp 15.000</p>
+                            <div class="flex gap-2">
+                                <button onclick="addToCart('Es Alpukat', 15000)"
+                                    class="bg-orange-100 text-orange-600 p-3 rounded-xl hover:bg-orange-200 transition">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                                <button onclick="buyNow('Es Alpukat', 15000)"
+                                    class="flex-1 bg-orange-500 text-white font-bold py-3 rounded-xl hover:bg-orange-600 shadow-lg transition">Beli</button>
+                            </div>
+                        </div>
+
+                        <div class="menu-card group">
+                            <div class="overflow-hidden rounded-2xl mb-4 h-52">
+                                <img src="img/jus mangga.jpeg"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                    alt="Jus Alpukat">
+                            </div>
+                            <h3 class="font-bold text-lg mb-1 text-gray-900">Jus Mangga Segar</h3>
+                            <p class="text-orange-600 font-extrabold text-xl mb-4">Rp 18.000</p>
+                            <div class="flex gap-2">
+                                <button onclick="addToCart('Jus Mangga Segar', 18000)"
+                                    class="bg-orange-100 text-orange-600 p-3 rounded-xl hover:bg-orange-200 transition">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                                <button onclick="buyNow('Jus Mangga Segar', 18000)"
+                                    class="flex-1 bg-orange-500 text-white font-bold py-3 rounded-xl hover:bg-orange-600 shadow-lg transition">Beli</button>
+                            </div>
+                        </div>
+                        <div class="menu-card group">
+                            <div class="overflow-hidden rounded-2xl mb-4 h-52">
+                                <img src="img/es teler.jpeg"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                    alt="Es Teler">
+                            </div>
+                            <h3 class="font-bold text-lg mb-1 text-gray-900">Es Teler Sultan</h3>
+                            <p class="text-orange-600 font-extrabold text-xl mb-4">Rp 20.000</p>
+                            <div class="flex gap-2">
+                                <button onclick="addToCart('Es Teler Sultan', 20000)"
+                                    class="bg-orange-100 text-orange-600 p-3 rounded-xl hover:bg-orange-200 transition">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                                <button onclick="buyNow('Es Teler Sultan', 20000)"
+                                    class="flex-1 bg-orange-500 text-white font-bold py-3 rounded-xl hover:bg-orange-600 shadow-lg transition">Beli
+                                    Sekarang</button>
+                            </div>
+                        </div>
+                        <div class="menu-card group">
+                            <div class="overflow-hidden rounded-2xl mb-4 h-52">
+                                <img src="img/Aqua Botol.jpeg"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                    alt="Es Teler">
+                            </div>
+                            <h3 class="font-bold text-lg mb-1 text-gray-900">Aqua Botol</h3>
+                            <p class="text-orange-600 font-extrabold text-xl mb-4">Rp 5.000</p>
+                            <div class="flex gap-2">
+                                <button onclick="addToCart('Aqua Botol', 5000)"
+                                    class="bg-orange-100 text-orange-600 p-3 rounded-xl hover:bg-orange-200 transition">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                                <button onclick="buyNow('Aqua Botol', 5000)"
+                                    class="flex-1 bg-orange-500 text-white font-bold py-3 rounded-xl hover:bg-orange-600 shadow-lg transition">Beli
+                                    Sekarang</button>
+                            </div>
+                        </div>
+                        <div class="menu-card group">
+                            <div class="overflow-hidden rounded-2xl mb-4 h-52">
+                                <img src="img/kopi hitam panas.jpeg"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                    alt="Es Teler">
+                            </div>
+                            <h3 class="font-bold text-lg mb-1 text-gray-900">Kpi Hitam Panas</h3>
+                            <p class="text-orange-600 font-extrabold text-xl mb-4">Rp 7.000</p>
+                            <div class="flex gap-2">
+                                <button onclick="addToCart('Kopi Hitam Panas', 7000)"
+                                    class="bg-orange-100 text-orange-600 p-3 rounded-xl hover:bg-orange-200 transition">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                                <button onclick="buyNow('Kopi Hitam Panas', 7000)"
+                                    class="flex-1 bg-orange-500 text-white font-bold py-3 rounded-xl hover:bg-orange-600 shadow-lg transition">Beli
+                                    Sekarang</button>
+                            </div>
+                        </div>
+                        <div class="menu-card group">
+                            <div class="overflow-hidden rounded-2xl mb-4 h-52">
+                                <img src="img/teh panas.jpeg"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                    alt="Es Teler">
+                            </div>
+                            <h3 class="font-bold text-lg mb-1 text-gray-900">Teh Panas Hangat</h3>
+                            <p class="text-orange-600 font-extrabold text-xl mb-4">Rp 5.000</p>
+                            <div class="flex gap-2">
+                                <button onclick="addToCart('Teh Panas Hangat', 5000)"
+                                    class="bg-orange-100 text-orange-600 p-3 rounded-xl hover:bg-orange-200 transition">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                                <button onclick="buyNow('Teh Panas Hanagat', 5000)"
+                                    class="flex-1 bg-orange-500 text-white font-bold py-3 rounded-xl hover:bg-orange-600 shadow-lg transition">Beli
+                                    Sekarang</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </section>
+
+        <section id="faq" class="py-24 bg-gray-50 reveal">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <div class="text-center mb-12">
+                    <span class="text-orange-500 font-bold uppercase tracking-widest text-sm">Bantuan</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0d3b3f] mt-2">Sering Ditanyakan</h2>
+                    <div class="h-1.5 w-16 bg-orange-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="space-y-4">
+                    <details
+                        class="group bg-white p-6 rounded-2xl shadow-sm border border-gray-100 open:ring-1 open:ring-orange-500 transition duration-300">
+                        <summary
+                            class="font-bold cursor-pointer list-none flex justify-between items-center text-[#0d3b3f]">
+                            Apakah semua menu dijamin Halal?
+                            <span class="group-open:rotate-180 transition-transform text-orange-500">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </summary>
+                        <p class="text-gray-600 mt-4 text-sm leading-relaxed border-t pt-4">
+                            Tentu saja. Kami hanya menggunakan bahan baku bersertifikat Halal dan menjaga kebersihan
+                            dapur sesuai standar kesehatan yang ketat.
+                        </p>
+                    </details>
+
+                    <details
+                        class="group bg-white p-6 rounded-2xl shadow-sm border border-gray-100 open:ring-1 open:ring-orange-500 transition duration-300">
+                        <summary
+                            class="font-bold cursor-pointer list-none flex justify-between items-center text-[#0d3b3f]">
+                            Bagaimana cara pembayaran jika memilih QRIS?
+                            <span class="group-open:rotate-180 transition-transform text-orange-500">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </summary>
+                        <p class="text-gray-600 mt-4 text-sm leading-relaxed border-t pt-4">
+                            Setelah Anda mengirim pesanan via WhatsApp, Admin kami akan mengirimkan kode QRIS resmi toko
+                            kami. Anda cukup scan dan kirim bukti transfernya.
+                        </p>
+                    </details>
+
+                    <details
+                        class="group bg-white p-6 rounded-2xl shadow-sm border border-gray-100 open:ring-1 open:ring-orange-500 transition duration-300">
+                        <summary
+                            class="font-bold cursor-pointer list-none flex justify-between items-center text-[#0d3b3f]">
+                            Apakah menerima pesanan untuk acara besar?
+                            <span class="group-open:rotate-180 transition-transform text-orange-500">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </summary>
+                        <p class="text-gray-600 mt-4 text-sm leading-relaxed border-t pt-4">
+                            Bisa banget! Kami melayani pesanan nasi box atau prasmanan untuk kantor, acara keluarga,
+                            atau pernikahan. Silakan hubungi kami H-3 acara.
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="instagram" class="py-24 bg-white reveal">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-[#0d3b3f]">Galeri Instagram</h2>
+                    <p class="text-orange-500 font-bold hover:underline cursor-pointer">@rasanusantara.id</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="aspect-square overflow-hidden rounded-3xl bg-gray-100 group relative">
+                        <img src="img/Nasi Padang.jpeg"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div
+                            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
+                            <i class="fab fa-instagram text-white text-4xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="aspect-square overflow-hidden rounded-3xl bg-gray-100 group relative">
+                        <img src="img/Bebek.jpeg"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div
+                            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
+                            <i class="fab fa-instagram text-white text-4xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="aspect-square overflow-hidden rounded-3xl bg-gray-100 group relative">
+                        <img src="img/Ayam Betutu.jpeg"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div
+                            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
+                            <i class="fab fa-instagram text-white text-4xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="aspect-square overflow-hidden rounded-3xl bg-gray-100 group relative">
+                        <img src="img/sop buntut.jpeg"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div
+                            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
+                            <i class="fab fa-instagram text-white text-4xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <a href="#"
+                        class="inline-flex items-center gap-2 bg-[#0d3b3f] text-white px-8 py-3 rounded-full font-bold hover:bg-orange-500 transition shadow-lg">
+                        <i class="fab fa-instagram"></i> Follow Instagram Kami
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0d3b3f] mb-2">Hubungi Kami</h2>
+                    <div class="h-1.5 w-20 bg-orange-500 mx-auto rounded-full"></div>
+                </div>
+
+                <div
+                    class="grid md:grid-cols-2 gap-12 bg-gray-50 p-8 md:p-12 rounded-[2.5rem] border border-gray-100 shadow-sm">
+                    <div class="flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold text-[#0d3b3f] mb-6">Informasi Toko</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 bg-orange-100 flex items-center justify-center rounded-2xl text-orange-600 flex-shrink-0">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 uppercase font-bold tracking-widest">WhatsApp UMKM
+                                    </p>
+                                    <p class="text-lg font-bold text-gray-800">+62 838 1255 6281</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 bg-orange-100 flex items-center justify-center rounded-2xl text-orange-600 flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 uppercase font-bold tracking-widest">Alamat Outlet
+                                    </p>
+                                    <p class="text-lg font-bold text-gray-800">Jl. Kuliner No. 123, Jakarta Selatan</p>
+                                </div>
+                            </div>
+
+                            <div class="pt-4">
+                                <a href="https://goo.gl/maps/contoh" target="_blank"
+                                    class="inline-flex items-center gap-3 bg-[#0d3b3f] text-white px-8 py-4 rounded-2xl font-bold hover:bg-orange-500 transition-all duration-300 shadow-lg shadow-gray-200">
+                                    <i class="fas fa-directions text-xl"></i>
+                                    Buka di Google Maps
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rounded-3xl overflow-hidden shadow-xl h-[350px] border-4 border-white group relative">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15863.385501865!2d106.816666!3d-6.208763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMzEuNSJTIDEwNsKwNDknMDAuMCJF!5e0!3m2!1sid!2sid!4v1620000000000!5m2!1sid!2sid"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="cart-modal"
+            class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[200] hidden items-center justify-center p-2 sm:p-4">
+
+            <div
+                class="bg-white w-full max-w-sm rounded-[2rem] shadow-2xl animate-fade-in flex flex-col max-h-[95vh] overflow-hidden">
+
+                <div class="bg-[#0d3b3f] p-4 text-white flex justify-between items-center flex-shrink-0 z-20">
+                    <h2 class="text-lg font-bold flex items-center gap-2">
+                        <i class="fas fa-shopping-basket text-orange-500"></i> Keranjang
+                    </h2>
+                    <button onclick="toggleCart()" class="hover:rotate-90 transition-transform p-2 focus:outline-none">
+                        <i class="fas fa-times text-lg"></i>
+                    </button>
+                </div>
+
+                <div class="overflow-y-auto flex-1 flex flex-col">
+                    <div class="p-4 space-y-2 flex-shrink-0" id="cart-items">
+                    </div>
+
+                    <div class="p-4 bg-gray-50 border-t space-y-3 relative z-10">
+                        <div>
+                            <input type="text" id="buyer-name" placeholder="Nama Lengkap"
+                                class="w-full p-2.5 text-sm rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-orange-500 transition bg-white">
+                        </div>
+
+                        <div>
+                            <select id="order-type" onchange="toggleOrderDetails()"
+                                class="w-full p-2.5 text-sm rounded-xl border border-gray-200 outline-none bg-white cursor-pointer">
+                                <option value="Makan di Tempat">🪑 Makan di Tempat</option>
+                                <option value="Bawa Pulang">🥡 Bawa Pulang / Delivery</option>
+                            </select>
+                        </div>
+
+                        <div id="area-meja">
+                            <input type="text" id="nomorMeja" placeholder="Nomor Meja"
+                                class="w-full p-2.5 text-sm rounded-xl border border-gray-200 outline-none bg-white">
+                        </div>
+
+                        <div id="area-alamat" class="hidden">
+                            <textarea id="buyer-address" placeholder="Alamat Lengkap Pengiriman"
+                                class="w-full p-2.5 text-sm rounded-xl border border-gray-200 outline-none h-16 bg-white"></textarea>
+                        </div>
+
+                        <div class="border-t pt-3">
+                            <label class="block text-[10px] font-bold text-gray-500 mb-1 uppercase tracking-wide">Metode
+                                Pembayaran:</label>
+                            <select id="payment-method" onchange="handlePaymentChange()"
+                                class="w-full p-2.5 text-sm rounded-xl border border-gray-200 focus:border-orange-500 outline-none transition bg-white cursor-pointer">
+                                <option value="Tunai">💵 Tunai (Bayar di Kasir)</option>
+                                <option value="QRIS">📱 QRIS / E-Wallet</option>
+                                <option value="Transfer">🏦 Transfer Bank</option>
+                            </select>
+                        </div>
+
+                        <div id="qris-payment-area"
+                            class="hidden mt-3 p-3 bg-orange-50 border border-dashed border-orange-500 rounded-xl text-center">
+                            <p class="text-[9px] font-bold text-orange-600 mb-2 uppercase tracking-tighter">Scan QRIS
+                                Toko Kami:</p>
+                            <img src="img/Qris.jpeg" alt="QRIS Toko"
+                                class="w-28 mx-auto rounded-lg shadow-md border-2 border-white">
+                        </div>
+
+                        <div id="rekening-area" class="hidden mt-3 p-3 bg-blue-50 border border-blue-200 rounded-xl">
+                            <p class="text-[10px] font-bold text-blue-600 mb-2 uppercase tracking-widest">Detail
+                                Transfer:</p>
+                            <div
+                                class="flex items-center justify-between bg-white p-3 rounded-lg border border-blue-100 shadow-sm">
+                                <div>
+                                    <p class="text-[10px] text-gray-500 font-bold uppercase">SeaBank</p>
+                                    <p id="no-rekening" class="text-base font-black text-blue-800 tracking-wider">
+                                        901991648129</p>
+                                    <p class="text-[10px] text-gray-600">a/n Nama Toko Anda</p>
+                                </div>
+                                <i class="far fa-copy text-blue-400 cursor-pointer hover:text-blue-600"></i>
+                            </div>
+                        </div>
+
+                        <div id="bukti-pembayaran-area" class="hidden mt-3">
+                            <label class="block text-[10px] font-bold text-gray-400 mb-1 uppercase">Unggah Bukti
+                                Transfer:</label>
+                            <input type="file" id="input-bukti" accept="image/*"
+                                class="text-[10px] w-full file:mr-3 file:py-1.5 file:px-3 file:rounded-full file:border-0 file:bg-blue-100 file:text-blue-700">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-white border-t flex-shrink-0 z-20">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-gray-500 text-sm font-bold">Total Tagihan:</span>
+                        <span id="cart-total" class="text-xl font-black text-orange-600">Rp 0</span>
+                    </div>
+
+                    <button type="button" onclick="checkout()"
+                        class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 relative z-30">
+                        <i class="fab fa-whatsapp text-lg"></i> PESAN SEKARANG
+                    </button>
+                </div>
+
+            </div>
+        </div>
+        <div id="receipt-modal" class="hidden fixed inset-0 bg-black/60 z-[120] flex items-center justify-center px-4">
+            <div class="bg-white w-full max-w-sm rounded-2xl p-6 font-mono text-sm shadow-2xl">
+                <h3 class="font-bold text-center border-b pb-4 mb-4 text-lg">STRUK PESANAN</h3>
+                <div id="receipt-info" class="mb-4 text-[11px] bg-gray-50 p-2 rounded border"></div>
+                <div id="receipt-list" class="space-y-1 mb-4 border-b pb-2"></div>
+                <div class="flex justify-between font-bold text-base mb-6">
+                    <span>TOTAL:</span>
+                    <span id="receipt-total-akhir"></span>
+                </div>
+                <button onclick="sendToWA()"
+                    class="w-full bg-[#25d366] text-white py-3 rounded-lg font-bold flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp text-xl"></i> KIRIM KE WHATSAPP
+                </button>
+                <button onclick="closeReceipt()"
+                    class="w-full py-2 mt-2 text-gray-400 hover:text-gray-600 transition">Tutup</button>
+            </div>
+        </div>
+        <footer class="bg-[#0d3b3f] text-white pt-16 pb-8">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+
+                    <div class="space-y-4">
+                        <div class="text-2xl font-bold italic tracking-wider">
+                            RASA<span class="text-orange-500">NUSANTARA.</span>
+                        </div>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Menghadirkan kelezatan masakan khas nusantara dengan bahan pilihan dan resep autentik
+                            keluarga.
+                        </p>
+                        <div class="flex space-x-4 pt-2">
+                            <a href="#"
+                                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-500 transition"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="#"
+                                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-500 transition"><i
+                                    class="fab fa-tiktok"></i></a>
+                            <a href="#"
+                                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-500 transition"><i
+                                    class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg mb-6 border-b border-orange-500 w-fit">Navigasi</h4>
+                        <ul class="space-y-3 text-gray-400 text-sm">
+                            <li><a href="#home" class="hover:text-orange-500 transition">Beranda</a></li>
+                            <li><a href="#tentang" class="hover:text-orange-500 transition">Tentang Kami</a></li>
+                            <li><a href="#menu" class="hover:text-orange-500 transition">Menu Spesial</a></li>
+                            <li><a href="#testimoni" class="hover:text-orange-500 transition">Testimoni</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg mb-6 border-b border-orange-500 w-fit">Jam Buka</h4>
+                        <ul class="space-y-3 text-gray-400 text-sm">
+                            <li class="flex justify-between"><span>Senin - Jumat:</span> <span>10:00 - 21:00</span></li>
+                            <li class="flex justify-between"><span>Sabtu - Minggu:</span> <span>09:00 - 22:00</span>
+                            </li>
+                            <li class="text-orange-500 font-bold italic pt-2">* Hari Libur Tetap Buka</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg mb-6 border-b border-orange-500 w-fit">Metode Bayar</h4>
+                        <div class="flex flex-wrap gap-3 text-2xl text-gray-400">
+                            <i class="fas fa-money-bill-wave" title="Cash"></i>
+                            <i class="fas fa-qrcode" title="QRIS"></i>
+                            <i class="fas fa-university" title="Transfer Bank"></i>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-4 leading-relaxed">
+                            Pesanan diproses setelah konfirmasi pembayaran diterima oleh admin.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="border-t border-white/10 pt-8 text-center text-gray-500 text-xs">
+                    <p>&copy; 2026 Rasa Nusantara. All Rights Reserved. Built with <i
+                            class="fas fa-heart text-red-500"></i> for UMKM Indonesia.</p>
+                </div>
+            </div>
+        </footer>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+        <script src="script.js"></script>
+</body>
+
+</html>

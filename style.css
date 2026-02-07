@@ -1,0 +1,139 @@
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    scroll-behavior: smooth;
+}
+
+h1,
+h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* NAV HITAM TEBAL */
+.nav-link {
+    color: #000 !important;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #f97316 !important;
+}
+
+/* MENU MOBILE */
+.mobile-link {
+    color: #000;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* CARDS */
+.menu-card {
+    background: white;
+    padding: 1.25rem;
+    border-radius: 2rem;
+    border: 1px solid #f1f5f9;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+    border-color: #f97316;
+}
+
+/* ANIMASI */
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MODAL FIX */
+#cart-modal {
+    z-index: 1000 !important;
+}
+
+#receipt-modal {
+    z-index: 1100 !important;
+}
+
+/* Efek Muncul Saat Scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Banner Promo Running Text */
+.promo-banner {
+    background: linear-gradient(90deg, #f97316, #fb923c);
+    color: white;
+    padding: 8px 0;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+footer a {
+    transition: all 0.3s ease;
+}
+
+footer i {
+    cursor: pointer;
+}
+
+#receipt-modal button {
+    cursor: pointer !important;
+    position: relative;
+    z-index: 999;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#cart-icon-trigger {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
